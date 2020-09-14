@@ -21,9 +21,7 @@ import android.content.res.Resources
 import android.os.Build
 import android.text.Html
 import android.text.Spanned
-import android.widget.TextView
 import androidx.core.text.HtmlCompat
-import androidx.recyclerview.widget.RecyclerView
 import com.example.android.trackmysleepquality.database.SleepNight
 import java.text.SimpleDateFormat
 import java.util.*
@@ -40,9 +38,9 @@ private val ONE_HOUR_MILLIS = TimeUnit.MILLISECONDS.convert(1, TimeUnit.HOURS)
  *
  * Examples:
  *
- * 6 seconds on Wednesday
- * 2 minutes on Monday
- * 40 hours on Thursday
+ * 수요일 6 초
+ * 월요일 2 분
+ * 목요일 40 시간
  *
  * @param startTimeMilli the start of the interval
  * @param endTimeMilli the end of the interval
@@ -54,15 +52,15 @@ fun convertDurationToFormatted(startTimeMilli: Long, endTimeMilli: Long, res: Re
     return when {
         durationMilli < ONE_MINUTE_MILLIS -> {
             val seconds = TimeUnit.SECONDS.convert(durationMilli, TimeUnit.MILLISECONDS)
-            res.getString(R.string.seconds_length, seconds, weekdayString)
+            res.getString(R.string.seconds_length, weekdayString, seconds)
         }
         durationMilli < ONE_HOUR_MILLIS -> {
             val minutes = TimeUnit.MINUTES.convert(durationMilli, TimeUnit.MILLISECONDS)
-            res.getString(R.string.minutes_length, minutes, weekdayString)
+            res.getString(R.string.minutes_length, weekdayString, minutes)
         }
         else -> {
             val hours = TimeUnit.HOURS.convert(durationMilli, TimeUnit.MILLISECONDS)
-            res.getString(R.string.hours_length, hours, weekdayString)
+            res.getString(R.string.hours_length, weekdayString, hours)
         }
     }
 }
@@ -142,11 +140,3 @@ fun formatNights(nights: List<SleepNight>, resources: Resources): Spanned {
         return HtmlCompat.fromHtml(sb.toString(), HtmlCompat.FROM_HTML_MODE_LEGACY)
     }
 }
-
-/**
- * ViewHolder that holds a single [TextView].
- *
- * A ViewHolder holds a view for the [RecyclerView] as well as providing additional information
- * to the RecyclerView such as where on the screen it was last drawn during scrolling.
- */
-class TextItemViewHolder(val textView: TextView): RecyclerView.ViewHolder(textView)
