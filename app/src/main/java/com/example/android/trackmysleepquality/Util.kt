@@ -93,7 +93,7 @@ fun convertNumericQualityToString(quality: Int, resources: Resources): String {
  */
 @SuppressLint("SimpleDateFormat")
 fun convertLongToDateString(systemTime: Long): String {
-    return SimpleDateFormat("EEEE yyyy-MM-dd' Time: 'HH:mm")
+    return SimpleDateFormat("yyyy년 MM월 dd일 E요일 aaa hh:mm")
             .format(systemTime).toString()
 }
 

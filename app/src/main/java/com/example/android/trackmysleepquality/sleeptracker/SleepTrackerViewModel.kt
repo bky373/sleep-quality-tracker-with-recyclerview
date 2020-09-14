@@ -57,9 +57,9 @@ class SleepTrackerViewModel(
     /**
      * Converted nights to Spanned for displaying.
      */
-    val nightsString = Transformations.map(nights) { nights ->
-        formatNights(nights, application.resources)
-    }
+//    val nightsString = Transformations.map(nights) { nights ->
+//        formatNights(nights, application.resources)
+//    }
 
     /**
      * If tonight has not been set, then the START button should be visible.
@@ -102,16 +102,17 @@ class SleepTrackerViewModel(
      */
 
     private val _navigateToSleepQuality = MutableLiveData<SleepNight>()
+
     /**
      * Call this immediately after calling `show()` on a toast.
      *
      * It will clear the toast request, so if the user rotates their phone it won't show a duplicate
      * toast.
      */
-
     fun doneShowingSnackbar() {
         _showSnackbarEvent.value = false
     }
+
     /**
      * If this is non-null, immediately navigate to [SleepQualityFragment] and call [doneNavigating]
      */
@@ -126,6 +127,19 @@ class SleepTrackerViewModel(
      */
     fun doneNavigating() {
         _navigateToSleepQuality.value = null
+    }
+
+
+    private val _navigateToSleepDetail = MutableLiveData<Long>()
+    val navigateToSleepDetail : LiveData<Long>
+        get() = _navigateToSleepDetail
+
+    fun onSleepNightClicked(nightId: Long) {
+        _navigateToSleepDetail.value = nightId
+    }
+
+    fun doneNavigatingDetail() {
+        _navigateToSleepDetail.value = null
     }
 
     init {

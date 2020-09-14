@@ -16,11 +16,13 @@
 
 package com.example.android.trackmysleepquality.sleeptracker
 
+import android.annotation.SuppressLint
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.example.android.trackmysleepquality.R
 import com.example.android.trackmysleepquality.convertDurationToFormatted
+import com.example.android.trackmysleepquality.convertLongToDateString
 import com.example.android.trackmysleepquality.convertNumericQualityToString
 import com.example.android.trackmysleepquality.database.SleepNight
 
@@ -32,7 +34,7 @@ fun TextView.setSleepDurationFormatted(item: SleepNight?) {
 }
 
 @BindingAdapter("sleepQualityString")
-fun TextView.setsleepQualityString(item: SleepNight?) {
+fun TextView.setSleepQualityString(item: SleepNight?) {
     item?.let {
         text = convertNumericQualityToString(item.sleepQuality, context.resources)
     }
@@ -51,5 +53,21 @@ fun ImageView.setSleepImage(item: SleepNight?) {
             5 -> R.drawable.ic_sleep_5
             else -> R.drawable.ic_sleep_active
         })
+    }
+}
+
+@BindingAdapter("sleepStartTime")
+fun TextView.setSetSleepStartTime(item: SleepNight?) {
+    item?.let {
+        val startTime = context.getString(R.string.start_time_kr) + convertLongToDateString(item.startTimeMilli)
+        text = startTime
+    }
+}
+
+@BindingAdapter("sleepEndTime")
+fun TextView.setSetSleepEndTime(item: SleepNight?) {
+    item?.let {
+        val endTime = context.getString(R.string.end_time_kr) + convertLongToDateString(item.endTimeMilli)
+        text = endTime
     }
 }
