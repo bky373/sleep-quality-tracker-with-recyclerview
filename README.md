@@ -7,20 +7,20 @@ The **SleepQualityTracker App** is an app that helps you collect information abo
 
 ## :bulb: Focused on: Room :bulb:
 * I've Covered
-  * Application Architecture with Room database, DAO
-  * MVVM, LiveData
-  * RecyclerView, Adapter(ListAdapter, BindingAdapter), VIewHolder, LayoutManagers(Linear, Grid)
-  * Navigation
-  * Coroutines
+  * **Application Architecture with Room database, DAO**
+  * **MVVM, LiveData**
+  * **RecyclerView, Adapter(ListAdapter, BindingAdapter), VIewHolder, LayoutManagers(Linear, Grid)**
+  * **Navigation**
+  * **Coroutines**
   
 * Other techniques Used:
-  * Transformation map
-  * Data Binding in XML files
-  * ViewModel Factory
-  * Backing Properties to protect MutableLiveData
-  * Observable state LiveData variables to trigger navigation
-  * Sealed Class
-  * ClickListener Callbacks
+  * **Transformation map**
+  * **DataBinding in XML files**
+  * **ViewModel Factory**
+  * **Backing Properties to protect MutableLiveData**
+  * **Observable state LiveData variables to trigger navigation**
+  * **Sealed Class**
+  * **ClickListener Callbacks**
 
 ## Playing the App
 * **Pressing the <i>START</i> and <i>STOP</i> buttons in turn**
