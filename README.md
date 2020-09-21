@@ -1,5 +1,5 @@
 ## :sleeping: Sleep Quality Tracker App (수면 퀄리티 체크 앱) :sleeping:
-Udacity 과정 Lesson 7 실습 (Lesson 6 내용 포함) <br> 
+Udacity 과정 Lesson 7 실습 (참고 : [Lesson 6 내용](https://github.com/bky373/sleep-quality-tracker-app)) <br> 
 This is the toy app for Lesson 7 of the [Android App Development in Kotlin course on Udacity](https://www.udacity.com/course/ud9012/).
 
 ## Descriptions
